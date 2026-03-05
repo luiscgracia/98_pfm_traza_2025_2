@@ -163,6 +163,106 @@
 				"inputs": [
 					{
 						"indexed": true,
+						"internalType": "uint256",
+						"name": "itemId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "reason",
+						"type": "string"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "ParticipantAuthorized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "ParticipantRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "itemId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "producer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RawMaterialMinted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
 						"internalType": "bytes32",
 						"name": "role",
 						"type": "bytes32"
@@ -299,7 +399,26 @@
 						"type": "uint256"
 					},
 					{
-						"indexed": false,
+						"indexed": true,
+						"internalType": "address",
+						"name": "cancelledBy",
+						"type": "address"
+					}
+				],
+				"name": "TransferCancelled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "itemId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
 						"internalType": "address",
 						"name": "from",
 						"type": "address"
@@ -517,6 +636,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "_itemId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "bytes32",
 						"name": "role",
 						"type": "bytes32"
@@ -528,25 +660,6 @@
 						"internalType": "bytes32",
 						"name": "",
 						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_itemId",
-						"type": "uint256"
-					}
-				],
-				"name": "getTraceability",
-				"outputs": [
-					{
-						"internalType": "address[]",
-						"name": "",
-						"type": "address[]"
 					}
 				],
 				"stateMutability": "view",
@@ -696,6 +809,84 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155BatchReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"name": "onERC1155Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "_itemId",
 						"type": "uint256"
@@ -725,6 +916,24 @@
 					}
 				],
 				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeParticipant",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -884,6 +1093,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "Fixes aplicados:   [FIX #1] Custodia de tokens en el contrato durante tránsito   [FIX #3] Validación de address(0) y rol del receptor   [FIX #4] Whitelist de roles asignables por ADMIN   [FIX #5] revokeParticipant añadido   [FIX #6] history[] → eventos OwnershipTransferred   [FIX #7] transformToFinishedProduct emite evento de trazabilidad   [FIX #8] mintRawMaterial emite RawMaterialMinted   [FIX #9] Transform bloqueado si hay transferencia pendiente",
 			"errors": {
 				"AccessControlBadConfirmation()": [
 					{
@@ -1019,6 +1229,7 @@
 					"details": "See {IERC1155MetadataURI-uri}. This implementation returns the same URI for *all* token types. It relies on the token type ID substitution mechanism https://eips.ethereum.org/EIPS/eip-1155#metadata[defined in the ERC]. Clients calling this function must replace the `\\{id\\}` substring with the actual token type ID."
 				}
 			},
+			"title": "GlobalSupplyChain",
 			"version": 1
 		},
 		"userdoc": {
@@ -1029,7 +1240,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Supply_Chain_Tracker/sc/src/SupplyChainTracker2.sol": "GlobalSupplyChain"
+			"Supply_Chain_Tracker/sc/src/SupplyChainTracker3.sol": "GlobalSupplyChain"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -1187,12 +1398,12 @@
 				"dweb:/ipfs/QmdGPcvptHN7UBCbUYBbRX3hiRVRFLRwno8b4uga6uFNif"
 			]
 		},
-		"Supply_Chain_Tracker/sc/src/SupplyChainTracker2.sol": {
-			"keccak256": "0x4d678a7be43942dba5af2ca229c8692f60f0916f7e7a63ce4460a4a27a162228",
+		"Supply_Chain_Tracker/sc/src/SupplyChainTracker3.sol": {
+			"keccak256": "0xa6e40df932109df41f353591aee86843e78a86bc087d3ca01b9904cbd40f320d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://caa315604f9a273c43d2f7634070664bc83049e3d4f0596327cc7f412612fa8b",
-				"dweb:/ipfs/QmWH8Q7zG8fxQWoMQAcCKX4bTUcGzrdekSRBnmrGyqZT5v"
+				"bzz-raw://a11235d6d348131d3629d401b9cdd68885edbd957557be90ce5f65fd8df9a1e2",
+				"dweb:/ipfs/QmQ7eDEJnWcJ4TuMh3yu9bYKseuPwru52VAb5ygRwufJcb"
 			]
 		}
 	},

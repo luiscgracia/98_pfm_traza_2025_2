@@ -2,6 +2,7 @@
 src = "src"
 out = "artifacts"
 libs = ["node_modules", "lib"]
-remappings = ["@openzeppelin/=node_modules/@openzeppelin/"]
+solc = "0.8.24"
+remappings = ["@openzeppelin/=node_modules/@openzeppelin"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
-contract SupplyChainPro is ERC1155, AccessControl {
+contract SupplyChainTracker is ERC1155, AccessControl {
     using Counters for Counters.Counter;
     using EnumerableSet for EnumerableSet.AddressSet;
 

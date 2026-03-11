@@ -25,8 +25,8 @@ contract SupplyChainTracker is ERC1155, AccessControl {
         address currentOwner;
         address pendingOwner;
         bool isFinishedProduct; // false = Materia Prima, true = Producto Terminado
-        bool transitStatus;     // true si está esperando aceptación
-        address[] history;      // Trazabilidad de movimientos
+        bool transitStatus; // true si está esperando aceptación
+        address[] history; // Trazabilidad de movimientos
     }
 
     mapping(uint256 => Item) public items;

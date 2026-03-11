@@ -10,7 +10,7 @@ contract Deploy is Script {
         vm.startBroadcast();
 
         SupplyChainTracker supplyChainTracker = new SupplyChainTracker();
-        console.log(unicode"✅ SupplyChain desplegado en:", address(supplyChainTracker));
+        console.log(unicode"✅ SupplyChainTracker desplegado en:", address(supplyChainTracker));
 
         vm.stopBroadcast();
     }

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
@@ -73,7 +73,7 @@ contract SupplyChainTracker is ERC1155, AccessControl {
 
     // 2. Propuesta de movimiento (Producer -> Factory, etc.)
     function proposeTransfer(uint256 _id, address _to) public {
-        require(items[_id].currentOwner == msg.sender, "No eres el dueno");
+        require(items[_id].currentOwner == msg.sender, unicode"No eres el dueño");
         require(!items[_id].transitStatus, "Ya hay una transferencia en curso");
 
         items[_id].pendingOwner = _to;
@@ -122,7 +122,7 @@ contract SupplyChainTracker is ERC1155, AccessControl {
         require(!item.isFinishedProduct, "Ya es un producto terminado");
 
         item.isFinishedProduct = true;
-        item.name = string(abi.encodePacked("Finished: ", item.name));
+        item.name = string(abi.encodePacked("Terminado: ", item.name));
     }
 
     // 6. Compra del producto por el consumidor

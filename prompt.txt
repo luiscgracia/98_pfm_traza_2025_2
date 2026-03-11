@@ -1,3 +1,0 @@
-necesito un smart contract que supervise la linea de distribucion desde el producer, luego factory, luego retailer y despues consumer, se deben tokenizar las materias primas y los productos terminados, debe verificar que el receptor acepte la transaccion y hacer la trazabilidad completa de movimientos.
-
-necesito un smart contract que supervise la linea de distribucion desde el producer, luego factory, luego retailer y despues consumer, se deben tokenizar las materias primas y los productos terminados, debe verificar que el receptor acepte la transaccion y hacer la trazabilidad completa de movimientos, la gestion de roles debe ser con aprobacion de un administrador del smart contract
